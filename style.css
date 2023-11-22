@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+ 
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    margin: 2rem;
+    background-color:  #252A34;
+  }
+ 
+  #grid {
+    display: grid;
+    grid-template-columns: 8rem 8rem 8rem;
+    grid-template-rows: 8rem 8rem 8rem;
+    gap: 1rem;
+    margin-top: 0rem;
+    margin-bottom:2rem;
+  }
+ 
+  .case {
+    border: 0.5rem solid black;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    font-weight:700;
+    color:aliceblue;
+  }
+
+
+
+
+  .case:hover{
+    background-color:#FF2E63;
+  }
+ 
+  p {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    text-align: center;
+    color:aliceblue;
+    font-weight:700;
+  }
+ 
+  p:first-of-type {
+    color: #FF2E63;
+  }
+ 
+  h1 {
+    font-size: 3rem;
+    color:aliceblue;
+    font-weight:700;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  .turn-container{
+    width: 10rem;
+    height: 5rem;
+    margin-top:1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+    color:aliceblue;
+}
+
+
+
+
+
+
+
+
+.turn-container .turn-box{
+    border: 3px solid #000;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align:center;
+}
+
+
+
+
+
+
+
+
+.bg{
+    position: absolute;
+    bottom: -1;
+    left: 0;
+    width: 5rem;
+    height: 2.5rem;
+    background-color: #FF2E63;
+    z-index: -1;
+    transition: 0.2s ease-in-out;
+}  
+
+
+
+
+.noms {
+    position: fixed;
+    bottom: 0;
+    right: 0.5rem;
+    font-weight:700;
+    font-size: 2rem;
+}
+
+
+
+
+#play-again{
+    background-color: #FF2E63;
+    padding: 1rem 1.8rem;
+    border: none;
+    font-size: 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    display: none;
+    transition: 0.2s ease-in-out;
+}
+
+
+#play-again:hover{
+    padding: 1.2rem 2.4rem;
+    background-color: #08D9D6;
+    color: #000;
+    transition: 0.2s ease-in-out;
+}
+
+
+.fin {
+    background-color: #FF2E63;
+    width:26.5rem;
+    height:6rem;
+    border: 0.4rem solid black;
+    padding: 1.4rem 2.5rem;
+    font-size: 2.3rem;
+    text-align:center;
+    border-radius: 2rem;
+    cursor: pointer;    
+    transition: 0.2s ease-in-out;
+    margin-bottom: 2rem;
+    display:none;
+}
+
+
+
+
+.logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:18rem;
+}
