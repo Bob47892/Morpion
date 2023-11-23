@@ -1,6 +1,6 @@
 
 
-// récupérer les éléments du DOM
+//get DOM elements
 const cases = [...document.getElementsByClassName("case")]; // nodelist -> array
 let joueur = document.getElementById("joueur");
 let score1 = document.getElementById("score1");
@@ -81,7 +81,28 @@ const verifierVictoire = () => { //test all the possibilities to win
   }
 };
 
+var username = prompt("Veuillez entrer le nom du joueur 1:");
 
+    //Verify if there is a username
+    if (username != null && username.trim() !== "") {
+        //Use username
+        document.querySelector("#nom1").textContent = "Score de " + username + " : 0" ;
+        document.querySelector("#joueur").textContent = username;
+    } else {
+        //if there is no name
+        alert("Vous devez saisir un nom d'utilisateur.");
+    }
+
+var username2 = prompt("Veuillez entrer le nom du joueur 2:");
+
+    //Verify if there is a username
+    if (username2 != null && username2.trim() !== "") {
+        //User username
+        document.querySelector("#nom2").textContent = "Score de " + username2 + " : 0";
+    } else {
+        //if there is no name
+        alert("Vous devez saisir un nom d'utilisateur.");
+    }
 
 
 const jouerCase = (e) => {
@@ -90,7 +111,7 @@ const jouerCase = (e) => {
 
 
 
-  // si case déjà jouée on ne fait rien
+  //if case already played : nothing
   if (state[idCase] !== 0) return;
 
 
@@ -118,12 +139,12 @@ const jouerCase = (e) => {
 
     if (state.joueurEnCours == 1) { //if player 1 wins, add 1 to his score and display the score of the game
       state.scoreJ1++;
-      score1.textContent = state.scoreJ1;
-      document.querySelector("#fin").textContent = "Victoire du joueur 1";
+      document.querySelector("#nom1").textContent = "Score de " + username + " : " + state.scoreJ1;
+      document.querySelector("#fin").textContent = "Victoire de " + username;
     } else { //if player 2 wins, add 1 to his score and display the score of the game
       state.scoreJ2++;
-      score2.textContent = state.scoreJ2;
-      document.querySelector("#fin").textContent = "Victoire du joueur 2";
+      document.querySelector("#nom2").textContent = "Score de " + username2 + " : " + state.scoreJ2;
+      document.querySelector("#fin").textContent = "Victoire de " + username2;
     }
 
 
@@ -136,7 +157,7 @@ const jouerCase = (e) => {
 
     state.matchNul++;
     scoreNul.textContent = state.matchNul;
-    joueur.textContent = "1";
+    joueur.textContent = username;
 
 
     //if draw, display play again button and score
@@ -148,17 +169,17 @@ const jouerCase = (e) => {
 
    
   } else if (isVctoire === false) {
-    // sinon on continue le jeu
+    //else game continue
     if (state.joueurEnCours == 1) {
       state.joueurEnCours = 2;
       e.target.textContent = "X";
-      joueur.textContent = "2";
+      joueur.textContent = username2;
       turn = "O";
         document.querySelector(".bg").style.left = "5rem";
     } else {
       state.joueurEnCours = 1;
       e.target.textContent = "O";
-      joueur.textContent = "1";
+      joueur.textContent = username;
       turn = "X";
         document.querySelector(".bg").style.left = "0";
     }
