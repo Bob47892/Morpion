@@ -1,5 +1,3 @@
-
-
 //get DOM elements
 const cases = [...document.getElementsByClassName("case")]; // nodelist -> array
 let joueur = document.getElementById("joueur");
@@ -8,11 +6,7 @@ let score2 = document.getElementById("score2");
 let scoreNul = document.getElementById("scoreNul");
 
 
-
-
 //var X = "<span style='color: red;'>X</span>";
-
-
 
 
 // game's memory
@@ -33,8 +27,6 @@ let state = {
 };
 
 
-
-
 const resetState = () => { //reset the grid
   joueurEnCours = 1;
   state.c1 = 0;
@@ -47,8 +39,6 @@ const resetState = () => { //reset the grid
   state.c8 = 0;
   state.c9 = 0;
 };
-
-
 
 
 const verifierVictoire = () => { //test all the possibilities to win
@@ -109,22 +99,14 @@ const jouerCase = (e) => {
   let idCase = e.target.id;
 
 
-
-
   //if case already played : nothing
   if (state[idCase] !== 0) return;
-
-
 
 
   state[idCase] = state.joueurEnCours;
 
 
-
-
   let isVctoire = verifierVictoire();
-
-
 
 
   if (isVctoire === true) { //if victory, display play again button and score
@@ -133,8 +115,6 @@ const jouerCase = (e) => {
     document.querySelector("#play-again").style.display = "inline";
     document.querySelector("#score").style.display = "none";
     document.querySelector("#fin").style.display = "inline";
-
-
 
 
     if (state.joueurEnCours == 1) { //if player 1 wins, add 1 to his score and display the score of the game
@@ -147,12 +127,9 @@ const jouerCase = (e) => {
       document.querySelector("#fin").textContent = "Victoire de " + username2;
     }
 
-
    
   } else if (isVctoire === null) { //if draw, add 1 to draw games and display the score of the game
     // si nul
-
-
 
 
     state.matchNul++;
@@ -165,7 +142,6 @@ const jouerCase = (e) => {
     document.querySelector("#score").style.display = "none";
     document.querySelector("#fin").style.display = "inline";
     document.querySelector("#fin").textContent = "Match Nul";
-
 
    
   } else if (isVctoire === false) {
@@ -187,8 +163,6 @@ const jouerCase = (e) => {
 };
 
 
-
-
 cases.forEach((el) => {
   el.addEventListener("click", jouerCase);
 });
@@ -201,5 +175,3 @@ document.querySelector("#play-again").addEventListener("click", ()=>{ //reset th
     document.querySelector("#score").style.display = "inline";
     document.querySelector("#fin").style.display = "none";
 })
-
-
